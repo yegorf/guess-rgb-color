@@ -1,21 +1,27 @@
-package com.example.guess_rgb_color;
-
-import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+package com.example.guess_rgb_color.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.guess_rgb_color.R;
+import com.example.guess_rgb_color.tools.Color;
+import com.example.guess_rgb_color.tools.Generator;
+
 import java.util.LinkedList;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class GameFragment extends Fragment {
 
     @BindView(R.id.tv_color_rgb)
     TextView colorTv;
@@ -47,13 +53,17 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.plate9)
     Button plate9;
 
-    private static LinkedList<Button> plates = new LinkedList<>();
+    private LinkedList<Button> plates = new LinkedList<>();
 
+    public static GameFragment getInstance() {
+        return new GameFragment();
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_game, container, false);
+        ButterKnife.bind(this, view);
 
         plates.add(plate1);
         plates.add(plate2);
@@ -64,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
         plates.add(plate7);
         plates.add(plate8);
         plates.add(plate9);
-
         setData();
+
+        return view;
     }
 
     private void setData() {
@@ -86,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
         if (right) {
             colorTv.setText(color.toString());
             plate.setOnClickListener(e -> {
-                Toast.makeText(this, "Right!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.right_answer), Toast.LENGTH_SHORT).show();
                 setData();
             });
         } else {
             plate.setOnClickListener(e -> {
-                Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
                 setPlateText(plate, color);
             });
         }
@@ -106,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         plate.setText(color.toString());
     }
 
-    public static void clearPlates() {
+    private void clearPlates() {
         for (Button plate : plates) {
             plate.setText("");
         }

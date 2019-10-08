@@ -1,4 +1,4 @@
-package com.example.guess_rgb_color;
+package com.example.guess_rgb_color.tools;
 
 public class Generator {
     private static final int MAX = 255;
