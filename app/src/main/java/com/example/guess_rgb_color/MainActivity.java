@@ -8,6 +8,7 @@ import butterknife.OnClick;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,33 +21,33 @@ public class MainActivity extends AppCompatActivity {
     TextView colorTv;
 
     @BindView(R.id.plate1)
-    View plate1;
+    Button plate1;
 
     @BindView(R.id.plate2)
-    View plate2;
+    Button plate2;
 
     @BindView(R.id.plate3)
-    View plate3;
+    Button plate3;
 
     @BindView(R.id.plate4)
-    View plate4;
+    Button plate4;
 
     @BindView(R.id.plate5)
-    View plate5;
+    Button plate5;
 
     @BindView(R.id.plate6)
-    View plate6;
+    Button plate6;
 
     @BindView(R.id.plate7)
-    View plate7;
+    Button plate7;
 
     @BindView(R.id.plate8)
-    View plate8;
+    Button plate8;
 
     @BindView(R.id.plate9)
-    View plate9;
+    Button plate9;
 
-    private LinkedList<View> plates = new LinkedList<>();
+    private static LinkedList<Button> plates = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setData() {
+        clearPlates();
         int answer = Generator.getPlateNum();
         boolean right;
 
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setPlateColor(View plate, boolean right) {
+    private void setPlateColor(Button plate, boolean right) {
         Color color = Generator.generateRGB();
         plate.setBackgroundColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
 
@@ -88,9 +90,25 @@ public class MainActivity extends AppCompatActivity {
                 setData();
             });
         } else {
-            plate.setOnClickListener(e -> Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show());
+            plate.setOnClickListener(e -> {
+                Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
+                setPlateText(plate, color);
+            });
         }
     }
 
+    private static void setPlateText(Button plate, Color color) {
+        plate.setTextSize(10);
+        int r = Math.abs(255 - color.getR());
+        int g = Math.abs(255 - color.getG());
+        int b = Math.abs(255 - color.getB());
+        plate.setTextColor(android.graphics.Color.rgb(r, g, b));
+        plate.setText(color.toString());
+    }
 
+    public static void clearPlates() {
+        for (Button plate : plates) {
+            plate.setText("");
+        }
+    }
 }
