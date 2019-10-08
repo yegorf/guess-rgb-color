@@ -8,10 +8,28 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.guess_rgb_color.R;
 
+import butterknife.OnClick;
+
 public class NavigationFragment extends Fragment {
+
+    @OnClick(R.id.ib_game)
+    void onGameClicked() {
+
+    }
+
+    @OnClick(R.id.ib_account)
+    void onAccountClicked() {
+
+    }
+
+    @OnClick(R.id.ib_info)
+    void onInfoClicked() {
+
+    }
 
     public static NavigationFragment getInstance() {
         return new NavigationFragment();
