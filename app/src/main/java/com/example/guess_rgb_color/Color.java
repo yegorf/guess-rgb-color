@@ -31,10 +31,6 @@ public class Color {
 
     @Override
     public String toString() {
-        return "Color{" +
-                "r=" + r +
-                ", g=" + g +
-                ", b=" + b +
-                '}';
+        return "RGB(" + r + "," + g + "," + b + ")";
     }
 }
