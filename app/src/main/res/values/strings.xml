@@ -2,4 +2,8 @@
     <string name="app_name">guess-rgb-color</string>
     <string name="right_answer">Right!</string>
     <string name="wrong_answer">Wrong!</string>
+    <string name="total_score">TOTAL SCORE</string>
+    <string name="right">RIGHT</string>
+    <string name="wrong">WRONG</string>
+    <string name="total_statistic">TOTAL STATISTIC</string>
 </resources>
