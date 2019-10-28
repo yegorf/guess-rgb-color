@@ -16,6 +16,10 @@
         android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textStyle="italic"
+        android:fontFamily="casual"
+        android:layout_marginTop="20dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +36,8 @@
             android:background="@drawable/plate"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate2"
@@ -44,7 +49,8 @@
             app:layout_constraintEnd_toStartOf="@+id/plate3"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toEndOf="@+id/plate1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate3"
@@ -54,7 +60,8 @@
             android:background="@drawable/plate"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate4"
@@ -64,7 +71,8 @@
             android:background="@drawable/plate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plate1"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate6"
@@ -74,7 +82,8 @@
             android:background="@drawable/plate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plate3"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate7"
@@ -84,7 +93,8 @@
             android:background="@drawable/plate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plate4"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate8"
@@ -96,7 +106,8 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toEndOf="@+id/plate7"
             app:layout_constraintTop_toBottomOf="@+id/plate5"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate5"
@@ -108,7 +119,8 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toEndOf="@+id/plate7"
             app:layout_constraintTop_toBottomOf="@+id/plate2"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
         <Button
             android:id="@+id/plate9"
@@ -118,7 +130,8 @@
             android:background="@drawable/plate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plate6"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

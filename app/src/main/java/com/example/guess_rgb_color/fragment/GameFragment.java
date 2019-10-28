@@ -2,6 +2,11 @@ package com.example.guess_rgb_color.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -95,7 +101,17 @@ public class GameFragment extends Fragment {
 
     private void setPlateColor(Button plate, boolean right) {
         Color color = Generator.generateRGB();
-        plate.setBackgroundColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+        plate.setBackgroundResource(R.drawable.plate);
+        //plate.setBackgroundColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+        Drawable drawable = plate.getBackground();
+
+        if (drawable instanceof ShapeDrawable) {
+            ((ShapeDrawable)drawable).getPaint().setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+        } else if (drawable instanceof GradientDrawable) {
+            ((GradientDrawable)drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+        } else if (drawable instanceof ColorDrawable) {
+            ((ColorDrawable)drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+        }
 
 
         if (right) {
@@ -112,7 +128,6 @@ public class GameFragment extends Fragment {
             });
         } else {
             plate.setOnClickListener(e -> {
-                Toast.makeText(getContext(), getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
                 setPlateText(plate, color);
 
                 if (getActivity() != null) {
@@ -125,7 +140,7 @@ public class GameFragment extends Fragment {
     }
 
     private static void setPlateText(Button plate, Color color) {
-        plate.setTextSize(14);
+        plate.setTextSize(15);
         int r = Math.abs(255 - color.getR());
         int g = Math.abs(255 - color.getG());
         int b = Math.abs(255 - color.getB());
