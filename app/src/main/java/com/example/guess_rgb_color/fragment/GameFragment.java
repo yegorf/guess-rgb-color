@@ -3,7 +3,6 @@ package com.example.guess_rgb_color.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -126,12 +125,13 @@ public class GameFragment extends Fragment {
     }
 
     private static void setPlateText(Button plate, Color color) {
-        plate.setTextSize(10);
+        plate.setTextSize(14);
         int r = Math.abs(255 - color.getR());
         int g = Math.abs(255 - color.getG());
         int b = Math.abs(255 - color.getB());
         plate.setTextColor(android.graphics.Color.rgb(r, g, b));
-        plate.setText(color.toString());
+        String answer = color.getR() + "," + color.getG() + "," + color.getB();
+        plate.setText(answer);
     }
 
     private void clearPlates() {

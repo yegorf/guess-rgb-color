@@ -1,24 +1,14 @@
 package com.example.guess_rgb_color.activity;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.guess_rgb_color.fragment.GameFragment;
-import com.example.guess_rgb_color.fragment.InfoFragment;
-import com.example.guess_rgb_color.tools.Color;
-import com.example.guess_rgb_color.tools.Generator;
 import com.example.guess_rgb_color.R;
+import com.example.guess_rgb_color.fragment.GameFragment;
 
-import java.util.LinkedList;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
