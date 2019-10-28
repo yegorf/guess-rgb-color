@@ -28,6 +28,7 @@
                 android:text="@string/right"/>
 
             <TextView
+                android:id="@+id/tv_win_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="32"/>
@@ -47,6 +48,7 @@
                 android:text="@string/wrong"/>
 
             <TextView
+                android:id="@+id/tv_loose_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="54"/>

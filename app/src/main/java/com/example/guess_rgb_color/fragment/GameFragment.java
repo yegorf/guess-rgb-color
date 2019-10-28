@@ -1,6 +1,9 @@
 package com.example.guess_rgb_color.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.guess_rgb_color.R;
+import com.example.guess_rgb_color.constant.PrefConstants;
 import com.example.guess_rgb_color.tools.Color;
 import com.example.guess_rgb_color.tools.Generator;
 
@@ -94,16 +98,29 @@ public class GameFragment extends Fragment {
         Color color = Generator.generateRGB();
         plate.setBackgroundColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
 
+
         if (right) {
             colorTv.setText(color.toString());
             plate.setOnClickListener(e -> {
                 Toast.makeText(getContext(), getString(R.string.right_answer), Toast.LENGTH_SHORT).show();
                 setData();
+
+                if (getActivity() != null) {
+                    SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    int count = preferences.getInt(PrefConstants.WIN_SCORE, 0);
+                    preferences.edit().putInt(PrefConstants.WIN_SCORE, count + 1).apply();
+                }
             });
         } else {
             plate.setOnClickListener(e -> {
                 Toast.makeText(getContext(), getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
                 setPlateText(plate, color);
+
+                if (getActivity() != null) {
+                    SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    int count = preferences.getInt(PrefConstants.LOOSE_SCORE, 0);
+                    preferences.edit().putInt(PrefConstants.LOOSE_SCORE, count + 1).apply();
+                }
             });
         }
     }
