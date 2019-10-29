@@ -102,7 +102,6 @@ public class GameFragment extends Fragment {
     private void setPlateColor(Button plate, boolean right) {
         Color color = Generator.generateRGB();
         plate.setBackgroundResource(R.drawable.plate);
-        //plate.setBackgroundColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
         Drawable drawable = plate.getBackground();
 
         if (drawable instanceof ShapeDrawable) {
@@ -135,6 +134,8 @@ public class GameFragment extends Fragment {
                     int count = preferences.getInt(PrefConstants.LOOSE_SCORE, 0);
                     preferences.edit().putInt(PrefConstants.LOOSE_SCORE, count + 1).apply();
                 }
+
+                plate.setClickable(false);
             });
         }
     }
@@ -152,6 +153,7 @@ public class GameFragment extends Fragment {
     private void clearPlates() {
         for (Button plate : plates) {
             plate.setText("");
+            plate.setClickable(true);
         }
     }
 }
