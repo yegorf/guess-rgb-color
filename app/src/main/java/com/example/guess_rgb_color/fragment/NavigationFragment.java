@@ -35,6 +35,12 @@ public class NavigationFragment extends Fragment {
         manager.openFragment(NavigationManager.SCREEN_INFO);
     }
 
+    @OnClick(R.id.ib_rgb)
+    void onRgbClicked() {
+        NavigationManager manager = new NavigationManager(getFragmentManager());
+        manager.openFragment(NavigationManager.SCREEN_RGB);
+    }
+
     public static NavigationFragment getInstance() {
         return new NavigationFragment();
     }

@@ -8,12 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import com.example.guess_rgb_color.R;
 import com.example.guess_rgb_color.fragment.GameFragment;
 import com.example.guess_rgb_color.fragment.InfoFragment;
+import com.example.guess_rgb_color.fragment.RgbFragment;
 import com.example.guess_rgb_color.fragment.StatisticFragment;
 
 public class NavigationManager {
     public static final String SCREEN_GAME = "SCREEN_GAME";
     public static final String SCREEN_STATISTICS = "SCREEN_STATISTICS";
     public static final String SCREEN_INFO = "SCREEN_INFO";
+    public static final String SCREEN_RGB = "SCREEN_RGB";
     private FragmentManager fragmentManager;
 
     public NavigationManager(FragmentManager fragmentManager) {
@@ -44,6 +46,8 @@ public class NavigationManager {
                 return StatisticFragment.getInstance();
             case SCREEN_INFO:
                 return InfoFragment.getInstance();
+            case SCREEN_RGB:
+                return RgbFragment.getInstance();
             default:
                 return null;
         }

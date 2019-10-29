@@ -7,29 +7,38 @@
 
     <ImageButton
         android:id="@+id/ib_game"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/icon_journal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_grid"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         />
 
     <ImageButton
         android:id="@+id/ib_account"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/icon_info"
+        android:background="@drawable/ic_statistic"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         />
 
     <ImageButton
         android:id="@+id/ib_info"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/icon_search"
+        android:background="@drawable/ic_info"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <ImageButton
+        android:id="@+id/ib_rgb"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_rgb"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
         />
 
 </LinearLayout>
