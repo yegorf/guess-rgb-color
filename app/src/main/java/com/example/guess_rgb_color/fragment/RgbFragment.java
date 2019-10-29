@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guess_rgb_color.R;
+import com.skydoves.colorpickerview.ColorEnvelope;
+import com.skydoves.colorpickerview.ColorPickerView;
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.guess_rgb_color.R;
-import com.skydoves.colorpickerpreference.ColorPickerView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,8 +54,9 @@ public class RgbFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_rgb, container, false);
         ButterKnife.bind(this, view);
 
-        colorPickerView.setColorListener(colorEnvelope -> {
-            int[] colorArray = colorEnvelope.getColorRGB();
+        colorPickerView.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> {
+            colorView.setBackgroundColor(envelope.getColor());
+            int[] colorArray = envelope.getArgb();
             String color = String.format("%d, %d, %d", colorArray[0], colorArray[1], colorArray[2]);
             colorTv.setText(color);
             colorTv.setTextColor(android.graphics.Color.rgb(
@@ -63,9 +64,7 @@ public class RgbFragment extends Fragment {
                     (255 - colorArray[1]),
                     (255 - colorArray[2]))
             );
-            colorView.setBackgroundColor(android.graphics.Color.rgb(colorArray[0], colorArray[1], colorArray[2]));
         });
-
         return view;
     }
 }

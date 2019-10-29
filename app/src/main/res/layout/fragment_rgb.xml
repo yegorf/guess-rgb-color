@@ -38,13 +38,13 @@
 
     </LinearLayout>
 
-    <com.skydoves.colorpickerpreference.ColorPickerView
+    <com.skydoves.colorpickerview.ColorPickerView
         android:id="@+id/v_color_picker"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         app:palette="@drawable/palette"
-        app:selector="@drawable/wheel"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        app:selector="@drawable/wheel"
+        android:layout_marginTop="40dp"/>
 
 </LinearLayout>
