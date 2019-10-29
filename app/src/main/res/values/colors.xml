@@ -5,4 +5,6 @@
     <color name="colorBackground">#f7f7f7</color>
     <color name="colorSeparatorLine">#dbdbdb</color>
     <color name="colorAddResult">#68aeea</color>
+    <color name="colorGreen">#b9ffc5</color>
+    <color name="colorRed">#ffacac</color>
 </resources>
