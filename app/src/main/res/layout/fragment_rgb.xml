@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/v_color_code"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TextView
+            android:id="@+id/tv_rgb_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="255, 255, 255"
+            android:textSize="35sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"/>
+
+        <ImageButton
+            android:id="@+id/ib_copy"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_copy"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+    </LinearLayout>
 
     <com.skydoves.colorpickerpreference.ColorPickerView
         android:id="@+id/v_color_picker"
@@ -13,21 +46,5 @@
         app:selector="@drawable/wheel"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/tv_rgb_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="255, 255, 255"
-        android:textSize="25sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-
-    <View
-        android:id="@+id/v_color_rgb"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
 
 </LinearLayout>

@@ -6,4 +6,5 @@
     <string name="right">RIGHT</string>
     <string name="wrong">WRONG</string>
     <string name="total_statistic">TOTAL STATISTIC</string>
+    <string name="copied_to_buffer">Copied to buffer</string>
 </resources>
