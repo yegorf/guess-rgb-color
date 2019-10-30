@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">guess-rgb-color</string>
-    <string name="right_answer">Right!</string>
-    <string name="wrong_answer">Wrong!</string>
-    <string name="total_score">TOTAL SCORE</string>
-    <string name="right">RIGHT</string>
-    <string name="wrong">WRONG</string>
-    <string name="total_statistic">TOTAL STATISTIC</string>
-    <string name="copied_to_buffer">Copied to buffer</string>
-    <string name="exit_from_application">Exit</string>
-    <string name="share">Share</string>
-    <string name="share_using">Share using</string>
+    <string name="right_answer">Правильно!</string>
+    <string name="wrong_answer">Неправильно!</string>
+    <string name="total_score">ОБЩИЙ СЧЕТ</string>
+    <string name="right">ПРАВИЛЬНО</string>
+    <string name="wrong">НЕПРАВИЛЬНО</string>
+    <string name="total_statistic">ОБЩАЯ СТАТИСТИКА</string>
+    <string name="copied_to_buffer">Скопировано</string>
+    <string name="exit_from_application">Выход</string>
+    <string name="share">Поделиться</string>
+    <string name="share_using">Поделиться через</string>
 </resources>
