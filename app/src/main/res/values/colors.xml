@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorHighLine">#517da2</color>
-    <color name="colorNameLine">#426382</color>
-    <color name="colorBackground">#f7f7f7</color>
-    <color name="colorSeparatorLine">#dbdbdb</color>
+    <color name="colorHighLine">#ffdfa6</color>
+    <color name="colorBottomMenu">#ffdfa6</color>
+    <color name="colorNameLine">#B29C74</color>
+    <color name="colorBackground">#aecbff</color>
+    <color name="colorSeparatorLine">#aecbff</color>
     <color name="colorAddResult">#68aeea</color>
     <color name="colorGreen">#b9ffc5</color>
     <color name="colorRed">#ffacac</color>

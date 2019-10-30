@@ -57,12 +57,12 @@ public class RgbFragment extends Fragment {
         colorPickerView.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> {
             colorView.setBackgroundColor(envelope.getColor());
             int[] colorArray = envelope.getArgb();
-            String color = String.format("%d, %d, %d", colorArray[0], colorArray[1], colorArray[2]);
+            String color = String.format("%d, %d, %d", colorArray[1], colorArray[2], colorArray[3]);
             colorTv.setText(color);
             colorTv.setTextColor(android.graphics.Color.rgb(
-                    (255 - colorArray[0]),
                     (255 - colorArray[1]),
-                    (255 - colorArray[2]))
+                    (255 - colorArray[2]),
+                    (255 - colorArray[3]))
             );
         });
         return view;

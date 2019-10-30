@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -68,6 +66,16 @@ public class GameFragment extends Fragment {
         return new GameFragment();
     }
 
+    private static void setPlateText(Button plate, Color color) {
+        plate.setTextSize(15);
+        int r = Math.abs(255 - color.getR());
+        int g = Math.abs(255 - color.getG());
+        int b = Math.abs(255 - color.getB());
+        plate.setTextColor(android.graphics.Color.rgb(r, g, b));
+        String answer = color.getR() + "," + color.getG() + "," + color.getB();
+        plate.setText(answer);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -105,11 +113,11 @@ public class GameFragment extends Fragment {
         Drawable drawable = plate.getBackground();
 
         if (drawable instanceof ShapeDrawable) {
-            ((ShapeDrawable)drawable).getPaint().setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+            ((ShapeDrawable) drawable).getPaint().setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
         } else if (drawable instanceof GradientDrawable) {
-            ((GradientDrawable)drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+            ((GradientDrawable) drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
         } else if (drawable instanceof ColorDrawable) {
-            ((ColorDrawable)drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
+            ((ColorDrawable) drawable).setColor(android.graphics.Color.rgb(color.getR(), color.getG(), color.getB()));
         }
 
 
@@ -138,16 +146,6 @@ public class GameFragment extends Fragment {
                 plate.setClickable(false);
             });
         }
-    }
-
-    private static void setPlateText(Button plate, Color color) {
-        plate.setTextSize(15);
-        int r = Math.abs(255 - color.getR());
-        int g = Math.abs(255 - color.getG());
-        int b = Math.abs(255 - color.getB());
-        plate.setTextColor(android.graphics.Color.rgb(r, g, b));
-        String answer = color.getR() + "," + color.getG() + "," + color.getB();
-        plate.setText(answer);
     }
 
     private void clearPlates() {
