@@ -20,16 +20,16 @@
         android:layout_height="40dp"
         android:background="@drawable/ic_statistic"
         android:layout_gravity="center"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         />
 
     <ImageButton
         android:id="@+id/ib_rgb"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:background="@drawable/ic_rgb"
         android:layout_gravity="center"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         />
 
     <ImageButton
@@ -38,7 +38,17 @@
         android:layout_height="40dp"
         android:background="@drawable/ic_info"
         android:layout_gravity="center"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         />
+
+    <ImageButton
+        android:id="@+id/ib_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_settings"
+        android:layout_gravity="center"
+        android:layout_marginStart="25dp"
+        />
+
 
 </LinearLayout>
