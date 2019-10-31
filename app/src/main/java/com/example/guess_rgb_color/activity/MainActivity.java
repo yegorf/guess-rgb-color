@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.guess_rgb_color.R;
 import com.example.guess_rgb_color.fragment.GameFragment;
+import com.example.guess_rgb_color.navigation.NavigationManager;
 
 import butterknife.ButterKnife;
 
@@ -46,5 +47,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 });
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        NavigationManager manager = new NavigationManager(getSupportFragmentManager());
+        manager.navigateBack(this);
     }
 }
