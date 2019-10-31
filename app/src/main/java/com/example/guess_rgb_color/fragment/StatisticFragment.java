@@ -14,7 +14,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.guess_rgb_color.R;
 import com.example.guess_rgb_color.constant.PrefConstants;
+import com.example.guess_rgb_color.injection.DaggerViewComponent;
+import com.example.guess_rgb_color.injection.ViewComponent;
+import com.example.guess_rgb_color.injection.ViewModule;
 import com.example.guess_rgb_color.tools.PercentCalculator;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +32,9 @@ public class StatisticFragment extends Fragment {
     @BindView(R.id.tv_loose_count)
     TextView looseCountTv;
 
+    @Inject
+    SharedPreferences preferences;
+
     public static StatisticFragment getInstance() {
         return new StatisticFragment();
     }
@@ -36,13 +44,19 @@ public class StatisticFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistic, container, false);
         ButterKnife.bind(this, view);
+
+        ViewComponent component = DaggerViewComponent.builder()
+                .viewModule(new ViewModule(getActivity()))
+                .build();
+        component.inject(this);
+
         initViews();
         return view;
     }
 
     private void initViews() {
         if (getActivity() != null) {
-            SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+            //SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
             int winCount = preferences.getInt(PrefConstants.WIN_SCORE, 0);
             int looseCount = preferences.getInt(PrefConstants.LOOSE_SCORE, 0);
 

@@ -20,10 +20,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.guess_rgb_color.R;
 import com.example.guess_rgb_color.constant.PrefConstants;
+import com.example.guess_rgb_color.injection.DaggerViewComponent;
+import com.example.guess_rgb_color.injection.ViewComponent;
+import com.example.guess_rgb_color.injection.ViewModule;
 import com.example.guess_rgb_color.tools.Color;
 import com.example.guess_rgb_color.tools.Generator;
 
 import java.util.LinkedList;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,6 +65,9 @@ public class GameFragment extends Fragment {
     @BindView(R.id.plate9)
     Button plate9;
 
+    @Inject
+    SharedPreferences preferences;
+
     private LinkedList<Button> plates = new LinkedList<>();
 
     public static GameFragment getInstance() {
@@ -81,6 +89,11 @@ public class GameFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         ButterKnife.bind(this, view);
+
+        ViewComponent viewComponent = DaggerViewComponent.builder()
+                .viewModule(new ViewModule(getActivity()))
+                .build();
+        viewComponent.inject(this);
 
         plates.add(plate1);
         plates.add(plate2);
@@ -128,7 +141,7 @@ public class GameFragment extends Fragment {
                 setData();
 
                 if (getActivity() != null) {
-                    SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    //SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
                     int count = preferences.getInt(PrefConstants.WIN_SCORE, 0);
                     preferences.edit().putInt(PrefConstants.WIN_SCORE, count + 1).apply();
                 }
@@ -138,7 +151,7 @@ public class GameFragment extends Fragment {
                 setPlateText(plate, color);
 
                 if (getActivity() != null) {
-                    SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    //SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
                     int count = preferences.getInt(PrefConstants.LOOSE_SCORE, 0);
                     preferences.edit().putInt(PrefConstants.LOOSE_SCORE, count + 1).apply();
                 }
