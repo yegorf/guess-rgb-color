@@ -35,4 +35,7 @@ dependencies {
 
     //compile 'com.github.skydoves:colorpickerpreference:1.0.2'
     implementation "com.github.skydoves:colorpickerview:2.1.5"
+
+    implementation 'com.google.dagger:dagger:2.20'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
 }
