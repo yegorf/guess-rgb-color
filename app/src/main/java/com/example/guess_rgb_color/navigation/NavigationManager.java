@@ -13,12 +13,12 @@ import com.example.guess_rgb_color.fragment.SettingsFragment;
 import com.example.guess_rgb_color.fragment.StatisticFragment;
 
 public class NavigationManager {
-    private static String currentFragment;
     public static final String SCREEN_GAME = "SCREEN_GAME";
     public static final String SCREEN_STATISTICS = "SCREEN_STATISTICS";
     public static final String SCREEN_INFO = "SCREEN_INFO";
     public static final String SCREEN_RGB = "SCREEN_RGB";
     public static final String SCREEN_SETTINGS = "SCREEN_SETTINGS";
+    private static String currentScreen = SCREEN_GAME;
     private FragmentManager fragmentManager;
 
     public NavigationManager(FragmentManager fragmentManager) {
@@ -26,10 +26,12 @@ public class NavigationManager {
     }
 
     public void openFragment(String screenName) {
-        Fragment fragment = getFragmentForScreen(screenName);
-        if (fragment != null) {
-            open(fragment, screenName);
-            currentFragment = screenName;
+        if (!currentScreen.equals(screenName)) {
+            Fragment fragment = getFragmentForScreen(screenName);
+            if (fragment != null) {
+                open(fragment, screenName);
+                currentScreen = screenName;
+            }
         }
     }
 
@@ -59,7 +61,7 @@ public class NavigationManager {
         }
     }
     public void navigateBack(Activity activity) {
-        if (currentFragment.equals(SCREEN_GAME)) {
+        if (currentScreen.equals(SCREEN_GAME)) {
             activity.finish();
         } else {
             openFragment(SCREEN_GAME);
